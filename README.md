@@ -1,2 +1,2 @@
 # MosaicCollectionLayoutXamarin
-Mosaic style colectionview layout for Xamarin
+Mosaic style collectionview layout for Xamarin
