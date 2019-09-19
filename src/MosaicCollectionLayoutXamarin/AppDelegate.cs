@@ -1,4 +1,6 @@
 ﻿using Foundation;
+using MosaicCollectionLayoutXamarin.Helpers;
+using MosaicCollectionLayoutXamarin.ViewControllers;
 using UIKit;
 
 namespace MosaicCollectionLayoutXamarin
@@ -8,18 +10,25 @@ namespace MosaicCollectionLayoutXamarin
     [Register("AppDelegate")]
     public class AppDelegate : UIApplicationDelegate
     {
-        // class-level declarations
-
         public override UIWindow Window { get; set; }
+
+        public void SetRootViewController(UIViewController rootViewController, bool animate = true)
+        {
+            if (animate)
+            {
+                UIView.Transition(Window, 0.5, UIViewAnimationOptions.TransitionFlipFromRight, () => Window.RootViewController = rootViewController, null);
+            }
+            else
+            {
+                Window.RootViewController = rootViewController;
+            }
+
+            Window.MakeKeyAndVisible();
+        }
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            // create a new window instance based on the screen size
-            Window = new UIWindow(UIScreen.MainScreen.Bounds);
-            Window.RootViewController = new UIViewController();
-
-            // make the window visible
-            Window.MakeKeyAndVisible();
+            SetRootViewController(StoryboardHelpers.CreateViewController<PostViewController>("Main", "PostViewController"));
 
             return true;
         }
@@ -27,7 +36,7 @@ namespace MosaicCollectionLayoutXamarin
         public override void OnResignActivation(UIApplication application)
         {
             // Invoked when the application is about to move from active to inactive state.
-            // This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) 
+            // This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message)
             // or when the user quits the application and it begins the transition to the background state.
             // Games should use this method to pause the game.
         }
@@ -46,7 +55,7 @@ namespace MosaicCollectionLayoutXamarin
 
         public override void OnActivated(UIApplication application)
         {
-            // Restart any tasks that were paused (or not yet started) while the application was inactive. 
+            // Restart any tasks that were paused (or not yet started) while the application was inactive.
             // If the application was previously in the background, optionally refresh the user interface.
         }
 

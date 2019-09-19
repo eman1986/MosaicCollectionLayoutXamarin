@@ -65,17 +65,31 @@
     <Compile Include="CollectionView\Cells\ImagesMoreCollectionViewCell.cs" />
     <Compile Include="CollectionView\Cells\ImagesMoreCollectionViewCell.designer.cs" />
     <Compile Include="CollectionView\Layouts\MosaicCollectionLayout.cs" />
+    <Compile Include="CollectionView\Sources\PostImageCollectionSource.cs" />
     <Compile Include="Constants\MosaicStyle.cs" />
+    <Compile Include="Helpers\StoryboardHelpers.cs" />
     <Compile Include="Helpers\UiExtensions.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Info.plist" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Entitlements.plist" />
     <InterfaceDefinition Include="Base.lproj\LaunchScreen.storyboard" />
     <InterfaceDefinition Include="CollectionView\Cells\ImagesCollectionViewCell.xib" />
     <InterfaceDefinition Include="CollectionView\Cells\ImagesMoreCollectionViewCell.xib" />
     <None Include="packages.config" />
+    <InterfaceDefinition Include="Base.lproj\Main.storyboard" />
+    <InterfaceDefinition Include="TableView\Cells\PostViewCell.xib" />
+    <Compile Include="TableView\Cells\PostViewCell.cs" />
+    <Compile Include="TableView\Cells\PostViewCell.designer.cs">
+      <DependentUpon>PostViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableView\Sources\PostTableViewSource.cs" />
+    <Compile Include="ViewControllers\PostViewController.cs" />
+    <Compile Include="ViewControllers\PostViewController.designer.cs">
+      <DependentUpon>PostViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SDWebImage.iOS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -91,13 +105,27 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ThumbsUp.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ThumbsUp.imageset\thumb-up.png" />
+    <ImageAsset Include="Assets.xcassets\ThumbsUp.imageset\thumb-up%402x.png" />
+    <ImageAsset Include="Assets.xcassets\ThumbsUp.imageset\thumb-up%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Comments.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Comments.imageset\comment.png" />
+    <ImageAsset Include="Assets.xcassets\Comments.imageset\comment%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Comments.imageset\comment%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Share.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Share.imageset\share.png" />
+    <ImageAsset Include="Assets.xcassets\Share.imageset\share%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Share.imageset\share%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CollectionView\Sources" />
     <Folder Include="Resources\" />
-    <Folder Include="TableView\Cells" />
-    <Folder Include="TableView\Sources" />
-    <Folder Include="ViewControllers" />
+    <Folder Include="TableView\" />
+    <Folder Include="TableView\Cells\" />
+    <Folder Include="ViewControllers\" />
+    <Folder Include="Assets.xcassets\ThumbsUp.imageset\" />
+    <Folder Include="Assets.xcassets\Comments.imageset\" />
+    <Folder Include="Assets.xcassets\Share.imageset\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
