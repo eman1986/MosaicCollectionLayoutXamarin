@@ -44,5 +44,9 @@
 	<string>Mosaic Collection Layout</string>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
 </dict>
 </plist>

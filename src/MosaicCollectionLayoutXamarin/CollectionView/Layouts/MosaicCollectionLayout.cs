@@ -9,17 +9,13 @@ using UIKit;
 
 namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
 {
+    [Register("MosaicCollectionLayout")]
     public class MosaicCollectionLayout : UICollectionViewLayout
     {
         private CGRect _contentBounds = CGRect.Empty;
         private readonly List<UICollectionViewLayoutAttributes> _cachedAttributes = new List<UICollectionViewLayoutAttributes>();
 
-        public MosaicCollectionLayout()
-        {
-            // Note: this .ctor should not contain any initialization logic.
-        }
-
-        public MosaicCollectionLayout(NSCoder coder) : base(coder)
+        public MosaicCollectionLayout(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
         }
