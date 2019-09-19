@@ -1,13 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cZE-iV-UFb" customClass="WallPostImagesMoreCollectionViewCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImagesCollectionMoreViewCell" id="cZE-iV-UFb" customClass="ImagesMoreCollectionViewCell">
             <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -16,41 +20,41 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3643">
                         <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3644" translatesAutoresizingMaskIntoConstraints="NO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3644">
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4033" translatesAutoresizingMaskIntoConstraints="NO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4033">
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                <color key="backgroundColor" white="0.129411764705882" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="1" alpha="1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
-                                <color key="backgroundColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0.129411764705882" alpha="0.7"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint id="3645" firstItem="3644" firstAttribute="top" secondItem="3643" secondAttribute="top"/>
-                            <constraint id="3646" firstItem="3644" firstAttribute="bottom" secondItem="3643" secondAttribute="bottom"/>
-                            <constraint id="3647" firstItem="3644" firstAttribute="trailing" secondItem="3643" secondAttribute="trailing"/>
-                            <constraint id="3648" firstItem="3644" firstAttribute="leading" secondItem="3643" secondAttribute="leading"/>
-                            <constraint id="5798" firstItem="4033" firstAttribute="top" secondItem="3644" secondAttribute="top"/>
-                            <constraint id="5875" firstItem="4033" firstAttribute="bottom" secondItem="3644" secondAttribute="bottom"/>
-                            <constraint id="5952" firstItem="4033" firstAttribute="leading" secondItem="3644" secondAttribute="leading"/>
-                            <constraint id="6029" firstItem="4033" firstAttribute="trailing" secondItem="3644" secondAttribute="trailing"/>
+                            <constraint firstItem="3644" firstAttribute="top" secondItem="3643" secondAttribute="top" id="3645"/>
+                            <constraint firstItem="3644" firstAttribute="bottom" secondItem="3643" secondAttribute="bottom" id="3646"/>
+                            <constraint firstItem="3644" firstAttribute="trailing" secondItem="3643" secondAttribute="trailing" id="3647"/>
+                            <constraint firstItem="3644" firstAttribute="leading" secondItem="3643" secondAttribute="leading" id="3648"/>
+                            <constraint firstItem="4033" firstAttribute="top" secondItem="3644" secondAttribute="top" id="5798"/>
+                            <constraint firstItem="4033" firstAttribute="bottom" secondItem="3644" secondAttribute="bottom" id="5875"/>
+                            <constraint firstItem="4033" firstAttribute="leading" secondItem="3644" secondAttribute="leading" id="5952"/>
+                            <constraint firstItem="4033" firstAttribute="trailing" secondItem="3644" secondAttribute="trailing" id="6029"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint id="3725" firstItem="3643" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top"/>
-                <constraint id="3802" firstItem="3643" firstAttribute="bottom" secondItem="cZE-iV-UFb" secondAttribute="bottom"/>
-                <constraint id="3879" firstItem="3643" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading"/>
-                <constraint id="3956" firstItem="3643" firstAttribute="trailing" secondItem="cZE-iV-UFb" secondAttribute="trailing"/>
+                <constraint firstItem="3643" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" id="3725"/>
+                <constraint firstItem="3643" firstAttribute="bottom" secondItem="cZE-iV-UFb" secondAttribute="bottom" id="3802"/>
+                <constraint firstItem="3643" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading" id="3879"/>
+                <constraint firstItem="3643" firstAttribute="trailing" secondItem="cZE-iV-UFb" secondAttribute="trailing" id="3956"/>
             </constraints>
             <connections>
-                <outlet property="lblAdditionalImageCount" destination="4033" id="name-outlet-4033"/>
                 <outlet property="ivMain" destination="3644" id="name-outlet-3644"/>
+                <outlet property="lblAdditionalImageCount" destination="4033" id="name-outlet-4033"/>
                 <outlet property="vMain" destination="3643" id="name-outlet-3643"/>
             </connections>
         </collectionViewCell>

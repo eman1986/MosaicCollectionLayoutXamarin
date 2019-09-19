@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="385"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="384.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="384"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="XQ5-ZH-65C">
@@ -50,23 +51,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666696" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" axis="vertical" distribution="equalSpacing" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1085">
-                                <rect key="frame" x="8" y="74" width="304" height="297.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="1386" translatesAutoresizingMaskIntoConstraints="NO" alignment="leading" distribution="equalSpacing" spacing="10" verticalCompressionResistancePriority="752" verticalHuggingPriority="251">
+                                <rect key="frame" x="8" y="74" width="296" height="295.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Header" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="582">
                                         <rect key="frame" x="0.0" y="0.0" width="94.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <constraints/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" ambiguous="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="664">
-                                        <rect key="frame" x="0.0" y="35.5" width="304" height="229"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="664" ambiguous="YES">
+                                        <rect key="frame" x="0.0" y="30.5" width="296" height="237"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewLayout key="collectionViewLayout" id="Apr-iZ-BVw" customClass="MosaicCollectionLayout"/>
                                         <cells/>
                                     </collectionView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1084">
-                                        <rect key="frame" x="0.0" y="279.5" width="86" height="18"/>
+                                        <rect key="frame" x="0.0" y="277.5" width="86" height="18"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1075">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="18"/>
@@ -98,10 +100,10 @@
                             <constraint firstItem="349" firstAttribute="leading" secondItem="201" secondAttribute="trailing" constant="8" id="1105"/>
                             <constraint firstItem="349" firstAttribute="top" secondItem="244" secondAttribute="bottom" constant="4" id="1106"/>
                             <constraint firstAttribute="trailing" secondItem="349" secondAttribute="trailing" constant="35" id="1107"/>
-                            <constraint firstItem="1085" firstAttribute="top" secondItem="349" secondAttribute="bottom" constant="20" id="1110"/>
-                            <constraint firstAttribute="bottom" secondItem="1085" secondAttribute="bottom" constant="13" id="1111"/>
-                            <constraint firstAttribute="trailing" secondItem="1085" secondAttribute="trailing" constant="8" id="1112"/>
-                            <constraint firstItem="1085" firstAttribute="leading" secondItem="XQ5-ZH-65C" secondAttribute="leading" constant="8" id="1113"/>
+                            <constraint id="1412" firstItem="1386" firstAttribute="top" secondItem="349" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1413" firstAttribute="bottom" secondItem="1386" secondAttribute="bottom" constant="15"/>
+                            <constraint id="1414" firstItem="1386" firstAttribute="leading" secondItem="XQ5-ZH-65C" secondAttribute="leading" constant="8"/>
+                            <constraint id="1415" firstAttribute="trailing" secondItem="1386" secondAttribute="trailing" constant="16"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -114,14 +116,14 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btnComments" destination="1082" id="name-outlet-1082"/>
-                <outlet property="btnLike" destination="1075" id="name-outlet-1075"/>
-                <outlet property="btnShare" destination="1083" id="name-outlet-1083"/>
-                <outlet property="cvImages" destination="664" id="name-outlet-664"/>
                 <outlet property="ivProfileImage" destination="201" id="name-outlet-201"/>
                 <outlet property="lblFullName" destination="244" id="name-outlet-244"/>
-                <outlet property="lblHeader" destination="582" id="name-outlet-582"/>
                 <outlet property="lblPostDate" destination="349" id="name-outlet-349"/>
+                <outlet property="cvImages" destination="664" id="name-outlet-664"/>
+                <outlet property="btnLike" destination="1075" id="name-outlet-1075"/>
+                <outlet property="btnComments" destination="1082" id="name-outlet-1082"/>
+                <outlet property="btnShare" destination="1083" id="name-outlet-1083"/>
+                <outlet property="lblHeader" destination="582" id="name-outlet-582"/>
             </connections>
             <point key="canvasLocation" x="33.75" y="-27.464788732394368"/>
         </tableViewCell>
