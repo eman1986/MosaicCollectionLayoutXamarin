@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using CoreGraphics;
 using Foundation;
 using MosaicCollectionLayoutXamarin.Constants;
@@ -37,21 +38,26 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
 
             var itemCount = CollectionView.NumberOfItemsInSection(0);
             var currentIndex = 0;
-            var itemStyle = MosaicStyle.FullWidth;
+            var itemStyle = DetermineItemStyle(itemCount);
             var lastFrame = CGRect.Empty;
             var cvWidth = CollectionView.Bounds.Width;
+            var cvHeight = CollectionView.Bounds.Height;
 
             while (currentIndex < itemCount)
             {
-                var segmentFrame = new CGRect(0, lastFrame.GetMaxY() + 1, cvWidth, 200);
+                CGRect segmentFrame;
                 var segmentRects = new List<CGRect>();
 
                 switch (itemStyle)
                 {
                     case MosaicStyle.FullWidth:
+                        segmentFrame = new CGRect(0, lastFrame.GetMaxY() + 1, cvWidth, cvHeight);
+
                         segmentRects.Add(segmentFrame);
                         break;
                     case MosaicStyle.HalfWidth:
+                        segmentFrame = new CGRect(0, lastFrame.GetMaxY() + 1, cvWidth, cvHeight / 2);
+
                         var slices = segmentFrame.DividedIntegral((nfloat) 0.5, CGRectEdge.MinXEdge);
 
                         segmentRects.Add(slices["First"]);
@@ -59,6 +65,8 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
 
                         break;
                     case MosaicStyle.TwoThirdsByOneThird:
+                        segmentFrame = new CGRect(0, lastFrame.GetMaxY() + 1, cvWidth, cvHeight / 3);
+
                         var twoThirdsHorizontalSlices = segmentFrame.DividedIntegral((nfloat) (2.0 / 3.0), CGRectEdge.MinXEdge);
                         var twoThirdsVerticalSlices = segmentFrame.DividedIntegral((nfloat) 0.5, CGRectEdge.MinYEdge);
 
@@ -67,6 +75,8 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
                         segmentRects.Add(twoThirdsVerticalSlices["Second"]);
                         break;
                     case MosaicStyle.OneThirdByTwoThirds:
+                        segmentFrame = new CGRect(0, lastFrame.GetMaxY() + 1, cvWidth, cvHeight / 3);
+
                         var oneThirdHorizontalSlices = segmentFrame.DividedIntegral((nfloat) (1.0 / 3.0), CGRectEdge.MinXEdge);
                         var oneThirdVerticalSlices = segmentFrame.DividedIntegral((nfloat) 0.5, CGRectEdge.MinYEdge);
 
@@ -146,6 +156,22 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
             }
 
             return attributes.ToArray();
+        }
+
+        private static MosaicStyle DetermineItemStyle(nint count)
+        {
+            switch (count)
+            {
+                case 1:
+                    return MosaicStyle.FullWidth;
+                case 2:
+                    return MosaicStyle.HalfWidth;
+                case 3:
+                case 5:
+                    return MosaicStyle.OneThirdByTwoThirds;
+                default:
+                    return MosaicStyle.TwoThirdsByOneThird;
+            }
         }
     }
 }

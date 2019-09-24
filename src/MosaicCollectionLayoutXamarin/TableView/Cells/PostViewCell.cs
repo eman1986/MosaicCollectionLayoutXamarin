@@ -48,7 +48,6 @@ namespace MosaicCollectionLayoutXamarin.TableView.Cells
                 _postImageCollectionSource.Update(post.ImageUrls.Count > 5 ? post.ImageUrls.GetRange(0, 5) : post.ImageUrls, post.ImageUrls);
 
                 InvokeOnMainThread(cvImages.ReloadData);
-                cvImages.CollectionViewLayout.InvalidateLayout();
             }
             else
             {
