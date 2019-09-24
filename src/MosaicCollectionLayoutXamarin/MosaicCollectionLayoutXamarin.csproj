@@ -23,6 +23,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -60,10 +61,6 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CollectionView\Cells\ImagesCollectionViewCell.cs" />
-    <Compile Include="CollectionView\Cells\ImagesCollectionViewCell.designer.cs" />
-    <Compile Include="CollectionView\Cells\ImagesMoreCollectionViewCell.cs" />
-    <Compile Include="CollectionView\Cells\ImagesMoreCollectionViewCell.designer.cs" />
     <Compile Include="CollectionView\Layouts\MosaicCollectionLayout.cs" />
     <Compile Include="CollectionView\Sources\PostImageCollectionSource.cs" />
     <Compile Include="Constants\MosaicStyle.cs" />
@@ -76,8 +73,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Entitlements.plist" />
     <InterfaceDefinition Include="Base.lproj\LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="CollectionView\Cells\ImagesCollectionViewCell.xib" />
-    <InterfaceDefinition Include="CollectionView\Cells\ImagesMoreCollectionViewCell.xib" />
     <None Include="packages.config" />
     <InterfaceDefinition Include="Base.lproj\Main.storyboard" />
     <InterfaceDefinition Include="TableView\Cells\PostViewCell.xib" />
@@ -89,6 +84,16 @@
     <Compile Include="ViewControllers\PostViewController.cs" />
     <Compile Include="ViewControllers\PostViewController.designer.cs">
       <DependentUpon>PostViewController.cs</DependentUpon>
+    </Compile>
+    <InterfaceDefinition Include="CollectionView\Cells\ImagesCollectionViewCell.xib" />
+    <Compile Include="CollectionView\Cells\ImagesCollectionViewCell.cs" />
+    <Compile Include="CollectionView\Cells\ImagesCollectionViewCell.designer.cs">
+      <DependentUpon>ImagesCollectionViewCell.cs</DependentUpon>
+    </Compile>
+    <InterfaceDefinition Include="CollectionView\Cells\ImagesMoreCollectionViewCell.xib" />
+    <Compile Include="CollectionView\Cells\ImagesMoreCollectionViewCell.cs" />
+    <Compile Include="CollectionView\Cells\ImagesMoreCollectionViewCell.designer.cs">
+      <DependentUpon>ImagesMoreCollectionViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +131,7 @@
     <Folder Include="Assets.xcassets\ThumbsUp.imageset\" />
     <Folder Include="Assets.xcassets\Comments.imageset\" />
     <Folder Include="Assets.xcassets\Share.imageset\" />
+    <Folder Include="CollectionView\Cells\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

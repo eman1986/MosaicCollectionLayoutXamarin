@@ -1,4 +1,4 @@
-// WARNING
+﻿// WARNING
 //
 // This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
@@ -21,10 +21,6 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Cells
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblAdditionalImageCount { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView vMain { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
             if (ivMain != null) {
@@ -35,11 +31,6 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Cells
             if (lblAdditionalImageCount != null) {
                 lblAdditionalImageCount.Dispose ();
                 lblAdditionalImageCount = null;
-            }
-
-            if (vMain != null) {
-                vMain.Dispose ();
-                vMain = null;
             }
         }
     }

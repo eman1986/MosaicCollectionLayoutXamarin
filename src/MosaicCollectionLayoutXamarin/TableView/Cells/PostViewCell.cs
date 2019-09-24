@@ -2,6 +2,7 @@
 
 using Foundation;
 using MosaicCollectionLayoutXamarin.CollectionView.Cells;
+using MosaicCollectionLayoutXamarin.CollectionView.Layouts;
 using MosaicCollectionLayoutXamarin.CollectionView.Sources;
 using MosaicCollectionLayoutXamarin.Models;
 using SDWebImage;
@@ -42,6 +43,7 @@ namespace MosaicCollectionLayoutXamarin.TableView.Cells
                 cvImages.RegisterNibForCell(ImagesCollectionViewCell.Nib, ImagesCollectionViewCell.Key);
                 cvImages.RegisterNibForCell(ImagesMoreCollectionViewCell.Nib, ImagesMoreCollectionViewCell.Key);
                 cvImages.Source = _postImageCollectionSource;
+//                cvImages.SetCollectionViewLayout(new MosaicCollectionLayout(), false);
 
                 _postImageCollectionSource.Update(post.ImageUrls.Count > 5 ? post.ImageUrls.GetRange(0, 5) : post.ImageUrls, post.ImageUrls);
 

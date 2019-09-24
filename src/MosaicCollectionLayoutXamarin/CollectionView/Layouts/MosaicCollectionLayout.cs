@@ -140,7 +140,7 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
             var attributes = new List<UICollectionViewLayoutAttributes>();
 
             // Find any cell that sits within the query rect.
-            var lastIndex = _cachedAttributes.Last().IndexPath;
+            var lastIndex = _cachedAttributes.Last()?.IndexPath;
             var firstMatchIndex = BinSearch(rect, 0, lastIndex.Row);
 
             if (firstMatchIndex == null)
@@ -150,7 +150,7 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
 
             // Starting from the match, loop up and down through the array until all the attributes have been added
             // within the query rect.
-            _cachedAttributes.Reverse(lastIndex.Row, firstMatchIndex.Value);
+            _cachedAttributes.Reverse(0, firstMatchIndex.Value);
 
             foreach (var attribute in _cachedAttributes)
             {
@@ -162,7 +162,7 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
                 attributes.Add(attribute);
             }
 
-            _cachedAttributes.Reverse(firstMatchIndex.Value, _cachedAttributes.Count - firstMatchIndex.Value);
+            _cachedAttributes.Reverse(0, _cachedAttributes.Count - firstMatchIndex.Value);
 
             foreach (var attribute in _cachedAttributes)
             {

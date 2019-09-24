@@ -1,4 +1,4 @@
-// WARNING
+﻿// WARNING
 //
 // This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
@@ -17,20 +17,11 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Cells
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView ivMain { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView vMain { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
             if (ivMain != null) {
                 ivMain.Dispose ();
                 ivMain = null;
-            }
-
-            if (vMain != null) {
-                vMain.Dispose ();
-                vMain = null;
             }
         }
     }
