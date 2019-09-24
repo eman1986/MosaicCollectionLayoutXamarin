@@ -79,15 +79,13 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
                 // cache attributes.
                 foreach (var rect in segmentRects)
                 {
-                    var indexPath = NSIndexPath.FromRowSection(currentIndex, 1);
+                    var indexPath = NSIndexPath.FromRowSection(currentIndex, 0);
                     var attributes = UICollectionViewLayoutAttributes.CreateForCell(indexPath);
 
                     attributes.Frame = rect;
+
                     _cachedAttributes.Add(attributes);
-
-                    var unionRect = _contentBounds.UnionWith(lastFrame);
-
-                    _contentBounds = unionRect;
+                    _contentBounds = _contentBounds.UnionWith(lastFrame);
 
                     currentIndex++;
                     lastFrame = rect;
@@ -123,7 +121,7 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
             }
         }
 
-        public override CGSize CollectionViewContentSize => CollectionView.Bounds.Size;
+        public override CGSize CollectionViewContentSize => _contentBounds.Size;
 
         public override bool ShouldInvalidateLayoutForBoundsChange(CGRect newBounds)
         {
@@ -139,69 +137,15 @@ namespace MosaicCollectionLayoutXamarin.CollectionView.Layouts
         {
             var attributes = new List<UICollectionViewLayoutAttributes>();
 
-            // Find any cell that sits within the query rect.
-            var lastIndex = _cachedAttributes.Last()?.IndexPath;
-            var firstMatchIndex = BinSearch(rect, 0, lastIndex.Row);
-
-            if (firstMatchIndex == null)
-            {
-                return attributes.ToArray();
-            }
-
-            // Starting from the match, loop up and down through the array until all the attributes have been added
-            // within the query rect.
-            _cachedAttributes.Reverse(0, firstMatchIndex.Value);
-
             foreach (var attribute in _cachedAttributes)
             {
-                if (attribute.Frame.GetMaxY() >= rect.GetMinY())
+                if (rect.IntersectsWith(attribute.Frame))
                 {
-                    break;
+                    attributes.Add(attribute);
                 }
-
-                attributes.Add(attribute);
-            }
-
-            _cachedAttributes.Reverse(0, _cachedAttributes.Count - firstMatchIndex.Value);
-
-            foreach (var attribute in _cachedAttributes)
-            {
-                if (attribute.Frame.GetMinY() <= rect.GetMaxY())
-                {
-                    break;
-                }
-
-                attributes.Add(attribute);
             }
 
             return attributes.ToArray();
-        }
-
-        /// <summary>
-        /// Perform a binary search on the cached attributes array.
-        /// </summary>
-        /// <param name="rect"></param>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
-        /// <returns>int?</returns>
-        private int? BinSearch(CGRect rect, int start, int end)
-        {
-            if (end < start)
-            {
-                return null;
-            }
-
-            var mid = (start + end) / 2;
-            var attribute = _cachedAttributes[mid];
-
-            if (attribute.Frame.IntersectsWith(rect))
-            {
-                return mid;
-            }
-
-            return attribute.Frame.GetMaxY() < rect.GetMaxY() ?
-                BinSearch(rect, (mid + 1), end) :
-                BinSearch(rect, start, (end - 1));
         }
     }
 }
